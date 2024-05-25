@@ -43,7 +43,7 @@ ui <- navbarPage(
               h4("Authors", class = "section-title"),
               tags$ul(
                 tags$li("Abdulbasit Abdalla (tooly206@uw.edu)"),
-                tags$li("Ekram Melash (Eam52@uw.edu)"),
+                tags$li("Ekram Milash (Eam52@uw.edu)"),
                 tags$li("Alison Milles (amilles1@uw.edu)"),
                 tags$li("Angela Sun (sinuos2@uw.edu)")
               )
