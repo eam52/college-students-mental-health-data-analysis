@@ -55,7 +55,11 @@ ui <- navbarPage(
         tags$link(rel = "stylesheet", type = "text/css", href = "styles.css")
       ),
       h1("Interactive Page 1", class = "main-title text-center mt-4"),
-      p("Interactive Page 1.")
+      p("Interactive Page 1."),
+      p("Interactive Page 1.", class = "section-content"),
+      p("The chart attempts to answer the question: “How do dietary habits correlate with mental health conditions among college students?”", class = "section-content"),
+      p("We understand that diet can affect our daily routines, whether we eat too little or too much, both of which can be caused by stress. Students respond to stress differently, and understanding that, we wanted to research the relationship between dietary habits, performance, and mental health among college students.", class = "section-content")
+
     )
   ),
   tabPanel(
