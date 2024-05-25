@@ -12,9 +12,6 @@ ui <- navbarPage(
         tags$link(rel = "stylesheet", type = "text/css", href = "styles.css")
       ),
       div(class = "header-background"),
-      div(class = "header-content",
-          h1("Welcome to Our Mental Health Project", class = "main-title text-center mt-4")
-      ),
       div(class = "container",
           div(class = "section mt-4",
               h4("The purpose/importance of the project", class = "section-title"),
