@@ -1,0 +1,12 @@
+name: FinalProject
+title: FinalProject
+username: angelasunsinuo
+account: angelasunsinuo
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 12067711
+bundleId: 8658421
+url: https://angelasunsinuo.shinyapps.io/FinalProject/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
