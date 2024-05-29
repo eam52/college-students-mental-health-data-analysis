@@ -1,13 +1,9 @@
 library(shiny)
 library(bslib)
 library(rsconnect)
-<<<<<<< HEAD
 library(plotly)
 library(ggplot2)
-=======
 library(DT)
-
->>>>>>> 3928f03dd176e886b7d52316dea79c2fbdfce6e2
 ui <- navbarPage(
   title = "INFO 201 APP",
   theme = bs_theme(),
@@ -149,11 +145,9 @@ ui <- navbarPage(
       tags$head(
         tags$link(rel = "stylesheet", type = "text/css", href = "styles.css")
       ),
-<<<<<<< HEAD
       h1("Interactive Page 3", class = "main-title text-center mt-4"),
-      p("")
+      p(""),
       
-=======
       div(class = "page-header",
           h1("Impact of COVID-19 on Student Well-being", class = "main-title text-center mt-4"),
           p("This interactive page allows users to delve into the varied impacts of the COVID-19 pandemic on the mental and academic well-being of college students. Use the dropdown menu to filter the data based on different sources of stress and observe the resulting changes in CGPA distributions across the student population.", class = "page-description")
@@ -171,7 +165,6 @@ ui <- navbarPage(
           p("The histogram below updates based on your selection to show the distribution of CGPA among the chosen group of students, providing insights into how their academic achievements were impacted during the pandemic.", class = "visualization-description"),
           plotOutput("pandemicImpactPlot")
       )
->>>>>>> 3928f03dd176e886b7d52316dea79c2fbdfce6e2
     )
   ),
   tabPanel(
