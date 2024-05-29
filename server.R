@@ -43,4 +43,28 @@ server <- function(input, output, session) {
       theme_minimal() +
       scale_fill_brewer(palette = "Set1")
   })
+  
+#  output$chart1 <- renderPlot({
+#    source("chart1")$value
+#  })
+
+#  output$takeaway1 <- renderText({
+#    "Takeaway1."
+#  })
+  
+  output$summary_chart <- renderPlot({
+    source("summary_chart.R")$value
+  })
+  
+  output$takeaway2 <- renderText({
+    "Takeaway2."
+  })
+  
+  output$summary_table <- renderDT({
+    source("summary_table.R")$value
+  })
+  
+  output$takeaway3 <- renderText({
+    "Takeaway3."
+  })
 }
