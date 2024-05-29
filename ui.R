@@ -113,7 +113,7 @@ ui <- navbarPage(
 #               plotOutput("chart1"))
 #      ),
       tags$div(class = "subtitle", 
-               "Takeaway 2"
+               "2. Stress is closely linked to students' majors"
       ),
       fluidRow(
         column(12,
@@ -123,7 +123,7 @@ ui <- navbarPage(
                plotOutput("summary_chart"))
       ),
       tags$div(class = "subtitle", 
-               "Takeaway 3"
+               "3. Students who experience negative mental impacts from COVID tend to achieve better academic performance."
       ),
       fluidRow(
         column(12, 
