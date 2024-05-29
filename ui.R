@@ -71,13 +71,28 @@ ui <- navbarPage(
     )
   ),
   tabPanel(
-    title = "Interactive Page 3",
+    title = "COVID-19 Impact",
     fluidPage(
       tags$head(
         tags$link(rel = "stylesheet", type = "text/css", href = "styles.css")
       ),
-      h1("Interactive Page 3", class = "main-title text-center mt-4"),
-      p("")
+      div(class = "page-header",
+          h1("Impact of COVID-19 on Student Well-being", class = "main-title text-center mt-4"),
+          p("This interactive page allows users to delve into the varied impacts of the COVID-19 pandemic on the mental and academic well-being of college students. Use the dropdown menu to filter the data based on different sources of stress and observe the resulting changes in CGPA distributions across the student population.", class = "page-description")
+      ),
+      
+      div(class = "control-panel",
+          h4("Data Filtering", class = "control-title mt-4"),
+          p("Select a stress source from the dropdown menu to see how different stressors during the pandemic have affected students' academic performance, represented through changes in their CGPA.", class = "control-description"),
+          selectInput("stressSource", "Filter by Source of Stress:", choices = c("All")),
+          tags$hr() 
+      ),
+      
+      div(class = "visualization",
+          h4("Visualization", class = "visualization-title"),
+          p("The histogram below updates based on your selection to show the distribution of CGPA among the chosen group of students, providing insights into how their academic achievements were impacted during the pandemic.", class = "visualization-description"),
+          plotOutput("pandemicImpactPlot")
+      )
     )
   ),
   tabPanel(
