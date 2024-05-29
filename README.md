@@ -1,7 +1,11 @@
 # Title of Your Final Project Here 
 ## INFO 201 "Foundational Skills for Data Science"
 
-Authors: Your names here
+Authors:  
+Angela Sun (sinuos2@uw.edu)  
+Ekram Milash (Eam52@uw.edu)  
+Alison Milles (amilles1@uw.edu)  
+Abdulbasit Abdalla (tooly206@uw.edu) 
 
 
 For the Final Project -- Data Wrangling, add the following to this code repository:
@@ -11,7 +15,7 @@ For the Final Project -- Data Wrangling, add the following to this code reposito
 * Data Nutrition Label (pdf) 
 
 
-**Link: Link to your Shiny App here**
+**Link: https://angelasunsinuo.shinyapps.io/FinalProject/**
 
 Please create the necessary files for your multi-page Shiny app in this GitHub repository. Consult the Canvas assignment for more details. Be sure to publish your app on Shinyapps.io.
 
