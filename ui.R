@@ -21,15 +21,14 @@ ui <- navbarPage(
               h4("Main questions", class = "section-title"),
               p("The major questions we are seeking to answer:", class = "section-content"),
               tags$ul(
-                tags$li("How do dietary habits correlate with mental health conditions among college students?"),
+                tags$li("Is there a relationship between mental health issues among college students and their dietary/nutrition habits?"),
                 tags$li("Are certain academic majors more likely to be associated with higher levels of stress?"),
-                tags$li("What has been the impact of the COVID-19 pandemic on the mental and academic well-being of college students?"),
-                tags$li("Does the geographic location of students play a role in their mental health outcomes?")
+                tags$li("How did the COVID-19 pandemic affect the mental and academic well-being of college students?"),
               )
           ),
           div(class = "section mt-4",
               h4("Data Source", class = "section-title"),
-              p("The data for our study was sourced from Kaggle, a platform for data science competitions and datasets. The dataset was compiled by AKILESH S, who gathered the data to analyze mental health issues among college students.",
+              p("The data for our study was sourced from Kaggle, a platform for data science competitions and datasets. The dataset was compiled by AKILESH S, who gathered the data to analyze mental health issues among college students. There are 468 observations (rows) and 18 features (columns) in the dataset. The data was generated through survey responses provided by the students. These responses were self-reported, based on personal feelings or perceptions related to various aspects of mental health. As firsthand data provided by real college students in real time, the data is appropriate for our research on students' mental health.",
                 tags$a(href = "https://www.kaggle.com/datasets/akilesh23/student-mental-health-issues/data", "Link to the Original Source"), ".", class = "section-content")
           ),
           div(class = "section mt-4",
