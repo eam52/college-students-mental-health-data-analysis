@@ -57,7 +57,7 @@ server <- function(input, output, session) {
   })
   
   output$takeaway2 <- renderText({
-    "Contents for Takeaway2."
+    "As shown in the chart below, it is evident that regardless of their major, students in technical fields experience the most stress during exams, as the standards for these exams always tend to be higher than those in other fields. Particularly, CSE majors appear most frequently in every stress source bar, indicating that CSE students consistently endure higher stress levels than students in any other major, or/and that there are significantly more students majoring in CSE. Given that the data/tech-related majors are known for tough exams and consistent career popularity, it is not surprising that student stress is correlated with their majors, especially for CSE students."
   })
   
   output$summary_table <- renderDT({
@@ -65,7 +65,7 @@ server <- function(input, output, session) {
   })
   
   output$takeaway3 <- renderText({
-    "Contents for Takeaway3."
+    "According to the table below, more students reported negative mental impacts from COVID-19  compared to those who reported positive mental impacts. For both groups, the median CGPA is the same. However, students who reported negative mental impacts have higher 25th and 75th percentile CGPAs, indicating that these students tend to have higher grades and a more centralized grade distribution. These values may also suggest that this group of students with higher academic performance experience more worries about future/peer pressure/academic anxiety compounded by COVID-19's negative mental effects. We shall always remember that grade is only a small part of life, and thus, we cannot conclude that students suffering negative mental impacts from COVID have better overall well-being merely due to their tendency for better academic performance."
   })
   
   output$insights <- renderText({
