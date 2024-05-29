@@ -1,10 +1,15 @@
 library(shiny)
 library(bslib)
 library(rsconnect)
+<<<<<<< HEAD
 library(plotly)
 library(ggplot2)
+=======
+library(DT)
+
+>>>>>>> 3928f03dd176e886b7d52316dea79c2fbdfce6e2
 ui <- navbarPage(
-  title = "INFO 201 App",
+  title = "INFO 201 APP",
   theme = bs_theme(),
   tabPanel(
     title = "Introductory Page",
@@ -22,15 +27,14 @@ ui <- navbarPage(
               h4("Main questions", class = "section-title"),
               p("The major questions we are seeking to answer:", class = "section-content"),
               tags$ul(
-                tags$li("How do dietary habits correlate with mental health conditions among college students?"),
+                tags$li("How does different factor contribute to students mental health and focusing on screen time, stress and diet?"),
                 tags$li("Are certain academic majors more likely to be associated with higher levels of stress?"),
-                tags$li("What has been the impact of the COVID-19 pandemic on the mental and academic well-being of college students?"),
-                tags$li("Does the geographic location of students play a role in their mental health outcomes?")
+                tags$li("How did the COVID-19 pandemic affect the mental and academic well-being of college students?"),
               )
           ),
           div(class = "section mt-4",
               h4("Data Source", class = "section-title"),
-              p("The data for our study was sourced from Kaggle, a platform for data science competitions and datasets. The dataset was compiled by AKILESH S, who gathered the data to analyze mental health issues among college students.",
+              p("The data for our study was sourced from Kaggle, a platform for data science competitions and datasets. The dataset was compiled by AKILESH S, who gathered the data to analyze mental health issues among college students. There are 468 observations (rows) and 18 features (columns) in the dataset. The data was generated through survey responses provided by the students. These responses were self-reported, based on personal feelings or perceptions related to various aspects of mental health. As firsthand data provided by real college students in real time, the data is appropriate for our research on students' mental health.",
                 tags$a(href = "https://www.kaggle.com/datasets/akilesh23/student-mental-health-issues/data", "Link to the Original Source"), ".", class = "section-content")
           ),
           div(class = "section mt-4",
@@ -140,24 +144,82 @@ ui <- navbarPage(
     )
   ),
   tabPanel(
-    title = "Interactive Page 3",
+    title = "COVID-19 Impact",
     fluidPage(
       tags$head(
         tags$link(rel = "stylesheet", type = "text/css", href = "styles.css")
       ),
+<<<<<<< HEAD
       h1("Interactive Page 3", class = "main-title text-center mt-4"),
       p("")
       
+=======
+      div(class = "page-header",
+          h1("Impact of COVID-19 on Student Well-being", class = "main-title text-center mt-4"),
+          p("This interactive page allows users to delve into the varied impacts of the COVID-19 pandemic on the mental and academic well-being of college students. Use the dropdown menu to filter the data based on different sources of stress and observe the resulting changes in CGPA distributions across the student population.", class = "page-description")
+      ),
+      
+      div(class = "control-panel",
+          h4("Data Filtering", class = "control-title mt-4"),
+          p("Select a stress source from the dropdown menu to see how different stressors during the pandemic have affected students' academic performance, represented through changes in their CGPA.", class = "control-description"),
+          selectInput("stressSource", "Filter by Source of Stress:", choices = c("All")),
+          tags$hr() 
+      ),
+      
+      div(class = "visualization",
+          h4("Visualization", class = "visualization-title"),
+          p("The histogram below updates based on your selection to show the distribution of CGPA among the chosen group of students, providing insights into how their academic achievements were impacted during the pandemic.", class = "visualization-description"),
+          plotOutput("pandemicImpactPlot")
+      )
+>>>>>>> 3928f03dd176e886b7d52316dea79c2fbdfce6e2
     )
   ),
   tabPanel(
     title = "Conclusion/Summary Takeaways",
     fluidPage(
       tags$head(
-        tags$link(rel = "stylesheet", type = "text/css", href = "styles.css")
+        tags$link(rel = "stylesheet", type = "text/css", href = "styles.css")),
+      div(class = "page-header",
+          h1("Key Takeaways", class = "main-title text-center mt-4")),
+      tags$div(class = "subtitle", 
+               "Takeaway 1"
       ),
-      h1("Key Takeaways", class = "main-title text-center mt-4"),
-      p("")
+#      fluidRow(
+#        column(6, 
+#               textOutput("takeaway1")
+#        ),
+#        column(6, 
+#               plotOutput("chart1"))
+#      ),
+      tags$div(class = "subtitle", 
+               "2. Stress is closely linked to students' majors"
+      ),
+      fluidRow(
+        column(12,
+               textOutput("takeaway2")
+        ),
+        column(12,
+               plotOutput("summary_chart"))
+      ),
+      tags$div(class = "subtitle", 
+               "3. Students who experience negative mental impacts from COVID tend to achieve better academic performance."
+      ),
+      fluidRow(
+        column(12, 
+               textOutput("takeaway3")
+        ),
+        column(12, 
+               DTOutput("summary_table"))
+      ),
+      tags$div(class = "subtitle", 
+         "The most important insight and broader implications"
+      ),
+      fluidRow(
+      column(12, 
+             textOutput("insights")
+      ),
+      
+     )
     )
   )
 )
