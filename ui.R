@@ -131,7 +131,16 @@ ui <- navbarPage(
         ),
         column(12, 
                DTOutput("summary_table"))
-      )
+      ),
+      tags$div(class = "subtitle", 
+         "The most important insight and broader implications"
+      ),
+      fluidRow(
+      column(12, 
+             textOutput("insights")
+      ),
+      
+     )
     )
   )
 )
