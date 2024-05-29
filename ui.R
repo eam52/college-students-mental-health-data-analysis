@@ -97,26 +97,26 @@ ui <- navbarPage(
   ),
   tabPanel(
     title = "Conclusion/Summary Takeaways",
-    fluidRow(
-      column(6, 
-             textOutput("Takeaway1")
-      ),
-      column(6, 
-             plotOutput(""))
-      ),
+#    fluidRow(
+#      column(6, 
+#             textOutput("takeaway1")
+#      ),
+#      column(6, 
+#             plotOutput("chart1"))
+#      ),
     fluidRow(
       column(6,
-             textOutput("Takeaway2")
+             textOutput("takeaway2")
       ),
       column(6,
-             plotOutput("chart"))
+             plotOutput("summary_chart"))
       ),
     fluidRow(
       column(6, 
-             textOutput("Takeaway3")
+             textOutput("takeaway3")
       ),
       column(6, 
-             DTOutput("table"))
-    )
-  )
+             DTOutput("summary_table"))
+   )
+ )
 )
