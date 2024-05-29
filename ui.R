@@ -1,6 +1,7 @@
 library(shiny)
 library(bslib)
 library(rsconnect)
+library(DT)
 
 ui <- navbarPage(
   title = "INFO 201 APP",
@@ -96,12 +97,26 @@ ui <- navbarPage(
   ),
   tabPanel(
     title = "Conclusion/Summary Takeaways",
-    fluidPage(
-      tags$head(
-        tags$link(rel = "stylesheet", type = "text/css", href = "styles.css")
+    fluidRow(
+      column(6, 
+             textOutput("Takeaway1")
       ),
-      h1("Key Takeaways", class = "main-title text-center mt-4"),
-      p("")
+      column(6, 
+             plotOutput(""))
+      ),
+    fluidRow(
+      column(6,
+             textOutput("Takeaway2")
+      ),
+      column(6,
+             plotOutput("chart"))
+      ),
+    fluidRow(
+      column(6, 
+             textOutput("Takeaway3")
+      ),
+      column(6, 
+             DTOutput("table"))
     )
   )
 )
