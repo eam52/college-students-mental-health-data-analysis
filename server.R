@@ -49,7 +49,7 @@ server <- function(input, output, session) {
 #  })
 
 #  output$takeaway1 <- renderText({
-#    "Takeaway1."
+#    "Contents for Takeaway1."
 #  })
   
   output$summary_chart <- renderPlot({
@@ -57,7 +57,7 @@ server <- function(input, output, session) {
   })
   
   output$takeaway2 <- renderText({
-    "Takeaway2."
+    "Contents for Takeaway2."
   })
   
   output$summary_table <- renderDT({
@@ -65,6 +65,10 @@ server <- function(input, output, session) {
   })
   
   output$takeaway3 <- renderText({
-    "Takeaway3."
+    "Contents for Takeaway3."
+  })
+  
+  output$insights <- renderText({
+    "Contents for insights."
   })
 }
