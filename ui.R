@@ -3,7 +3,7 @@ library(bslib)
 library(rsconnect)
 
 ui <- navbarPage(
-  title = "INFO 201 App",
+  title = "INFO 201 APP",
   theme = bs_theme(),
   tabPanel(
     title = "Introductory Page",
@@ -21,7 +21,7 @@ ui <- navbarPage(
               h4("Main questions", class = "section-title"),
               p("The major questions we are seeking to answer:", class = "section-content"),
               tags$ul(
-                tags$li("Is there a relationship between mental health issues among college students and their dietary/nutrition habits?"),
+                tags$li("How does different factor contribute to students mental health and focusing on screen time, stress and diet?"),
                 tags$li("Are certain academic majors more likely to be associated with higher levels of stress?"),
                 tags$li("How did the COVID-19 pandemic affect the mental and academic well-being of college students?"),
               )
