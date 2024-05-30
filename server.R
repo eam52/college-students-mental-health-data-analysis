@@ -80,7 +80,7 @@ server <- function(input, output, session) {
     })
   
   output$summary_chart <- renderPlot({
-    source("summary_chart.R")$value
+    source("tables.R")$value
   })
   
   output$takeaway2 <- renderText({
