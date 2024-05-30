@@ -182,7 +182,7 @@ ui <- navbarPage(
                textOutput("takeaway1")
        ),
         column(12, 
-               tableOutput("chart1"))
+               tableOutput("tables"))
       ),
       tags$div(class = "subtitle", 
                "2. Stress is closely linked to students' majors"
