@@ -79,7 +79,7 @@ server <- function(input, output, session) {
        "As shown in the data table below, it is obvious that factors such as spending too much time on screen, external stress and diet have an impact on one's mental health condition. More than 50% of student in college expereince mental health issues which is stemed from these factos. in Fact, a study has shown that in the united states specifically, it is estimated that up to or more that 50% of those who experience mental health problem, about 31% show an average prevalnce of depression. The quality of food that we consume on the daily can have major effect on our health. For example: eating fruits and vegitables along with protiens daily and eating junk foods daily are different when it comes to the effects they have on our bodies and our brains. Understanding this correlation between food and mental health is important as it can have implications in the way eat and care for our health."
     })
   
-  output$summary_chart <- renderPlot({
+  output$summary_chart <- renderTable({
     source("tables.R")$value
   })
   
