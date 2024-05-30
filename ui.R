@@ -75,13 +75,13 @@ ui <- navbarPage(
                        tags$li("Majority of student spend thier screen time on Social Media"),
                        tags$li("Others spend it on Studying"),
                        tags$li("and the rest saud others which includs video games, movies and more"),
-                     ), 
+                     ),
                      h3("Resources", class="section-title"),
                      p("Read more about effects of Screen Time on college Students", class ="section-content"),
                      p(tags$a(href = "https://www.honorsociety.org/articles/impact-screen-time-college-students-finding-balance-digital-age#:~:text=Mental%20Health%20Challenges%3A%20Heavy%20screen,portray%20an%20idealized%20online%20persona.", "Impacts of Screen Time on College Students", class = "section-content")),
                      p(tags$a(href = "https://www.opb.org/article/2023/02/27/screen-time-body-image/s", "Limiting Screen Time", class = "section-content")),
                      p(tags$a(href = "https://www.thesantaclara.org/blog/college-students-are-as-bad-as-ipad-kids", "College Students Vs Ipad Kids", class = "section-content"))
-                     
+
                    ),
                    conditionalPanel(
                      condition = "input.mentalHealth == 'Diet'",
@@ -103,7 +103,7 @@ ui <- navbarPage(
                    conditionalPanel(
                      condition = "input.mentalHealth == 'Stress'",
                      h3("The Purpose Of The Chart", class = "section-title"),
-                     p("According to National Institutes of Health (NIH):", class = "section-content"), 
+                     p("According to National Institutes of Health (NIH):", class = "section-content"),
                      tags$a(href = "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9169886/", "Link to the NIH Website", class = "section-content"),
                      p("Academic stress is one of the dominant stress factors among college students, and it is said to affect the mental well-being of students, especially those in harder fields of study. Just like stated, some groups have a higher chance of stress due to different factors.", class = "section-content"),
                      p("This Stress Chart attempts to answer the question: When are you stressed the most? Asking students to respond with the most cause of stress factor they experience.", class = "section-content"),
@@ -143,8 +143,8 @@ ui <- navbarPage(
           p("The question for this chart is, does the department that student's are in affect their stress levels? This highlights the differences of reasoning for stress depending on your major, or the department you are in. CSE is by far the most popular department, and reported the most stress during exams. IT and BioTech also report high stress during exams. Additionally, the second most reported stress area is money. Both areas of stress are not surprising, given university is expensive in the United States, and there are many exams throughout the school year that are highly impact your grade."),
           plotOutput("plot_2")
        )
-     )
-   ),
+    )
+  ),
   tabPanel(
     title = "COVID-19 Impact",
     fluidPage(
@@ -152,24 +152,34 @@ ui <- navbarPage(
         tags$link(rel = "stylesheet", type = "text/css", href = "styles.css")
       ),
       h1("Interactive Page 3", class = "main-title text-center mt-4"),
-      p(""),
-      
+
       div(class = "page-header",
           h1("Impact of COVID-19 on Student Well-being", class = "main-title text-center mt-4"),
           p("This interactive page allows users to delve into the varied impacts of the COVID-19 pandemic on the mental and academic well-being of college students. Use the dropdown menu to filter the data based on different sources of stress and observe the resulting changes in CGPA distributions across the student population.", class = "page-description")
       ),
-      
+
       div(class = "control-panel",
           h4("Data Filtering", class = "control-title mt-4"),
           p("Select a stress source from the dropdown menu to see how different stressors during the pandemic have affected students' academic performance, represented through changes in their CGPA.", class = "control-description"),
           selectInput("stressSource", "Filter by Source of Stress:", choices = c("All")),
-          tags$hr() 
+          tags$hr()
       ),
-      
+
       div(class = "visualization",
           h4("Visualization", class = "visualization-title"),
           p("The histogram below updates based on your selection to show the distribution of CGPA among the chosen group of students, providing insights into how their academic achievements were impacted during the pandemic.", class = "visualization-description"),
           plotOutput("pandemicImpactPlot")
+      ),
+
+      div(class = "research-findings",
+          h4("Key Research Findings", class = "findings-title"),
+          tags$ul(
+            tags$li("A greater number of students reported negative mental impacts from COVID-19 compared to those who reported positive impacts."),
+            tags$li("Both groups, those with positive and negative impacts, reported the same median CGPA."),
+            tags$li("Students experiencing negative impacts often had higher 25th and 75th percentile CGPAs, suggesting higher academic performance but also greater academic anxiety and stress."),
+            tags$li("These findings underscore the complex relationship between mental health and academic performance during the pandemic."),
+            tags$li("It's critical to consider that high academic performance does not necessarily equate to better overall well-being.")
+          )
       )
     )
   ),
@@ -180,17 +190,17 @@ ui <- navbarPage(
         tags$link(rel = "stylesheet", type = "text/css", href = "styles.css")),
       div(class = "page-header",
           h1("Key Takeaways", class = "main-title text-center mt-4")),
-      tags$div(class = "subtitle", 
+      tags$div(class = "subtitle",
                "1. Mental health among college students can be due to different factors"
       ),
       fluidRow(
-        column(12, 
+        column(12,
                textOutput("takeaway1")
         ),
-        column(12, 
+        column(12,
                tableOutput("tables"))
       ),
-      tags$div(class = "subtitle", 
+      tags$div(class = "subtitle",
                "2. Stress is closely linked to students' majors"
       ),
       fluidRow(
@@ -200,24 +210,24 @@ ui <- navbarPage(
         column(12,
                plotOutput("summary_chart"))
       ),
-      tags$div(class = "subtitle", 
+      tags$div(class = "subtitle",
                "3. Students who experience negative mental impacts from COVID tend to achieve better academic performance."
       ),
       fluidRow(
-        column(12, 
+        column(12,
                textOutput("takeaway3")
         ),
-        column(12, 
+        column(12,
                DTOutput("summary_table"))
       ),
-      tags$div(class = "subtitle", 
+      tags$div(class = "subtitle",
                "The most important insight and broader implications"
       ),
       fluidRow(
-        column(12, 
+        column(12,
                textOutput("insights")
         ),
-        
+
       )
     )
   )

@@ -40,71 +40,62 @@ server <- function(input, output, session) {
       filter(Department == input$department_select)
   })
 
-  output$plot_2 <- renderPlotly({
+  output$plot_2 <- renderPlot({
     plot_data <- filtered_department_data()
     if (input$department_select == "CSE") {
-      p <- ggplot(plot_data, aes(x = When_you_are_stressed_more)) +
+      ggplot(plot_data, aes(x = When_you_are_stressed_more)) +
         geom_bar(stat = "count", fill = "#FF5733") +
         theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
         labs(title = "Distribution of Stress Sources",
-            x = "During Heightened Stress", y = "Number of Students")
-      ggplotly(p)
+             x = "During Heightened Stress", y = "Number of Students")
     } else if (input$department_select == "ECE") {
-      p <- ggplot(plot_data, aes(x = When_you_are_stressed_more)) +
+      ggplot(plot_data, aes(x = When_you_are_stressed_more)) +
         geom_bar(stat = "count", fill = "#33FF57") +
         theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
         labs(title = "Distribution of Stress Sources",
-            x = "During Heightened Stress", y = "Number of Students")
-      ggplotly(p)
+             x = "During Heightened Stress", y = "Number of Students")
     } else if (input$department_select == "IT") {
-      p <- ggplot(plot_data, aes(x = When_you_are_stressed_more)) +
+      ggplot(plot_data, aes(x = When_you_are_stressed_more)) +
         geom_bar(stat = "count", fill = "#3357FF") +
         theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
         labs(title = "Distribution of Stress Sources",
-            x = "During Heightened Stress", y = "Number of Students")
-      ggplotly(p)
+             x = "During Heightened Stress", y = "Number of Students")
     } else if (input$department_select == "AERO") {
-      p <- ggplot(plot_data, aes(x = When_you_are_stressed_more)) +
+      ggplot(plot_data, aes(x = When_you_are_stressed_more)) +
         geom_bar(stat = "count", fill = "#F033FF") +
         theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
         labs(title = "Distribution of Stress Sources",
-            x = "During Heightened Stress", y = "Number of Students")
-      ggplotly(p)
+             x = "During Heightened Stress", y = "Number of Students")
     } else if (input$department_select == "ARTS") {
-      p <- ggplot(plot_data, aes(x = When_you_are_stressed_more)) +
+      ggplot(plot_data, aes(x = When_you_are_stressed_more)) +
         geom_bar(stat = "count", fill = "#FF3380") +
         theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
         labs(title = "Distribution of Stress Sources",
-            x = "During Heightened Stress", y = "Number of Students")
-      ggplotly(p)
+             x = "During Heightened Stress", y = "Number of Students")
     } else if (input$department_select == "BARCH") {
-      p <- ggplot(plot_data, aes(x = When_you_are_stressed_more)) +
+      ggplot(plot_data, aes(x = When_you_are_stressed_more)) +
         geom_bar(stat = "count", fill = "#33FFF0") +
         theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
         labs(title = "Distribution of Stress Sources",
-            x = "During Heightened Stress", y = "Number of Students")
-      ggplotly(p)
+             x = "During Heightened Stress", y = "Number of Students")
     } else if (input$department_select == "MBBS") {
-      p <- ggplot(plot_data, aes(x = When_you_are_stressed_more)) +
+      ggplot(plot_data, aes(x = When_you_are_stressed_more)) +
         geom_bar(stat = "count", fill = "#FFB533") +
         theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
         labs(title = "Distribution of Stress Sources",
-            x = "During Heightened Stress", y = "Number of Students")
-      ggplotly(p)
+             x = "During Heightened Stress", y = "Number of Students")
     } else if (input$department_select == "EEE") {
-      p <- ggplot(plot_data, aes(x = When_you_are_stressed_more)) +
+      ggplot(plot_data, aes(x = When_you_are_stressed_more)) +
         geom_bar(stat = "count", fill = "#FFA100") +
         theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
         labs(title = "Distribution of Stress Sources",
-            x = "During Heightened Stress", y = "Number of Students")
-      ggplotly(p)
+             x = "During Heightened Stress", y = "Number of Students")
     } else if (input$department_select == "BIOTECH") {
-      p <- ggplot(plot_data, aes(x = When_you_are_stressed_more)) +
+      ggplot(plot_data, aes(x = When_you_are_stressed_more)) +
         geom_bar(stat = "count", fill = "#8C33FF") +
         theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
         labs(title = "Distribution of Stress Sources",
-            x = "During Heightened Stress", y = "Number of Students")
-      ggplotly(p)
+             x = "During Heightened Stress", y = "Number of Students")
     } else {
       NULL
     }
@@ -139,16 +130,15 @@ server <- function(input, output, session) {
     }
   })
 
-  output$pandemicImpactPlot <- renderPlotly({
+  output$pandemicImpactPlot <- renderPlot({
     data <- filtered_stress_data()
-    p <- ggplot(data, aes(x = Cgpa, fill = Mental_Impacts_of_COVID)) +
+    ggplot(data, aes(x = Cgpa, fill = Mental_Impacts_of_COVID)) +
       geom_histogram(position = "dodge", bins = 10) +
       labs(title = "Distribution of CGPA by Mental Impact of COVID-19",
-          x = "CGPA",
-          y = "Frequency") +
+           x = "CGPA",
+           y = "Frequency") +
       theme_minimal() +
       scale_fill_brewer(palette = "Set1")
-    ggplotly(p)
   })
 
   output$tables <- renderTable({
