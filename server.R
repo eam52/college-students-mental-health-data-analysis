@@ -7,6 +7,7 @@ library(stringr)
 library(DT)
 
 data <- read.csv("Survey on Student Mental Health1.csv")
+
 server <- function(input, output, session) {
   output$my_chart <- renderPlotly({
     if (input$mentalHealth == "Screen Time") {
@@ -31,40 +32,75 @@ server <- function(input, output, session) {
     }
   })
   
-<<<<<<< HEAD
-  chart2 <- ggplot(data_department, aes(x = When_you_are_stressed_more, fill = department)) + 
-    geom_bar(stat = "count") +
-    theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-    labs(title = "Relationship between Major and Source of Stress",
-         x = "During Heightened Stress", y = "Number of Students") +
-    scale_fill_discrete(name = "Major")
-  chart2
+  updateSelectInput(session, "department_select", choices = top_10_department$department)
   
-  output$plot_2 <- renderPlotly({
-    student_mental[, unlist(input$Stress), drop = FALSE]
+  filtered_department_data <- reactive({
+    req(input$department_select)
+    data %>%
+      filter(Department == input$department_select)
   })
   
-}  
+  output$plot_2 <- renderPlot({
+    plot_data <- filtered_department_data()
+    if (input$department_select == "CSE") {
+      ggplot(plot_data, aes(x = When_you_are_stressed_more)) + 
+        geom_bar(stat = "count", fill = "#FF5733") +
+        theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+        labs(title = "Distribution of Stress Sources",
+             x = "During Heightened Stress", y = "Number of Students")
+    } else if (input$department_select == "ECE") {
+      ggplot(plot_data, aes(x = When_you_are_stressed_more)) + 
+        geom_bar(stat = "count", fill = "#33FF57") +
+        theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+        labs(title = "Distribution of Stress Sources",
+             x = "During Heightened Stress", y = "Number of Students")
+    } else if (input$department_select == "IT") {
+      ggplot(plot_data, aes(x = When_you_are_stressed_more)) + 
+        geom_bar(stat = "count", fill = "#3357FF") +
+        theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+        labs(title = "Distribution of Stress Sources",
+             x = "During Heightened Stress", y = "Number of Students")
+    } else if (input$department_select == "AERO") {
+      ggplot(plot_data, aes(x = When_you_are_stressed_more)) + 
+        geom_bar(stat = "count", fill = "#F033FF") +
+        theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+        labs(title = "Distribution of Stress Sources",
+             x = "During Heightened Stress", y = "Number of Students")
+    } else if (input$department_select == "ARTS") {
+      ggplot(plot_data, aes(x = When_you_are_stressed_more)) + 
+        geom_bar(stat = "count", fill = "#FF3380") +
+        theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+        labs(title = "Distribution of Stress Sources",
+             x = "During Heightened Stress", y = "Number of Students")
+    } else if (input$department_select == "BARCH") {
+      ggplot(plot_data, aes(x = When_you_are_stressed_more)) + 
+        geom_bar(stat = "count", fill = "#33FFF0") +
+        theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+        labs(title = "Distribution of Stress Sources",
+             x = "During Heightened Stress", y = "Number of Students")
+    } else if (input$department_select == "MBBS") {
+      ggplot(plot_data, aes(x = When_you_are_stressed_more)) + 
+        geom_bar(stat = "count", fill = "#FFB533") +
+        theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+        labs(title = "Distribution of Stress Sources",
+             x = "During Heightened Stress", y = "Number of Students")
+    } else if (input$department_select == "EEE") {
+      ggplot(plot_data, aes(x = When_you_are_stressed_more)) + 
+        geom_bar(stat = "count", fill = "#FFA100") +
+        theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+        labs(title = "Distribution of Stress Sources",
+             x = "During Heightened Stress", y = "Number of Students")
+    } else if (input$department_select == "BIOTECH") {
+      ggplot(plot_data, aes(x = When_you_are_stressed_more)) + 
+        geom_bar(stat = "count", fill = "#8C33FF") +
+        theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+        labs(title = "Distribution of Stress Sources",
+             x = "During Heightened Stress", y = "Number of Students")
+    } else {
+      NULL
+    }
+  })
   
-  
-  
-  
-  
-  
-  
-  
-  
-}
-  
-  
-
-  
-  
-  
-  
-  
-  
-=======
   data_influence <- reactive({
     raw_data <- read.csv("Survey on Student Mental Health1.csv")
     data <- raw_data %>%
@@ -85,7 +121,7 @@ server <- function(input, output, session) {
                       choices = c("All" = "All", unique(data_influence()$From_where_you_are_getting_stress)))
   })
   
-  filtered_data <- reactive({
+  filtered_stress_data <- reactive({
     if (input$stressSource == "All") {
       data_influence()
     } else {
@@ -95,7 +131,7 @@ server <- function(input, output, session) {
   })
   
   output$pandemicImpactPlot <- renderPlot({
-    data <- filtered_data()
+    data <- filtered_stress_data()
     ggplot(data, aes(x = Cgpa, fill = Mental_Impacts_of_COVID)) +
       geom_histogram(position = "dodge", bins = 10) +
       labs(title = "Distribution of CGPA by Mental Impact of COVID-19",
@@ -106,12 +142,12 @@ server <- function(input, output, session) {
   })
   
   output$tables <- renderTable({
-      source("tables.R") 
-    })
+    source("tables.R") 
+  })
   
   output$takeaway1 <- renderText({
-       "As shown in the data table below, it is obvious that factors such as spending too much time on screen, external stress and diet have an impact on one's mental health condition. More than 50% of student in college expereince mental health issues which is stemed from these factos. in Fact, a study has shown that in the united states specifically, it is estimated that up to or more that 50% of those who experience mental health problem, about 31% show an average prevalnce of depression. The quality of food that we consume on the daily can have major effect on our health. For example: eating fruits and vegitables along with protiens daily and eating junk foods daily are different when it comes to the effects they have on our bodies and our brains. Understanding this correlation between food and mental health is important as it can have implications in the way eat and care for our health."
-    })
+    "As shown in the data table below, it is obvious that factors such as spending too much time on screen, external stress and diet have an impact on one's mental health condition. More than 50% of student in college expereince mental health issues which is stemed from these factos. in Fact, a study has shown that in the united states specifically, it is estimated that up to or more that 50% of those who experience mental health problem, about 31% show an average prevalnce of depression. The quality of food that we consume on the daily can have major effect on our health. For example: eating fruits and vegitables along with protiens daily and eating junk foods daily are different when it comes to the effects they have on our bodies and our brains. Understanding this correlation between food and mental health is important as it can have implications in the way eat and care for our health."
+  })
   
   output$summary_chart <- renderPlot({
     source("summary_chart.R")$value
@@ -133,4 +169,3 @@ server <- function(input, output, session) {
     "In conclusion, the most important insight is that we should not think about mental health issues based on common prejudices and stereotypes. Many individuals always unintentionally hold a prejudice that students' mental health conditions are mainly related to academic performances since their lives are centered on learning, but it turns out that factors that we tend to ignore, such as diet and screen time, also influence students' mental health. Similarly, a common stereotype is that negative mental impacts definitely lead to some worse outcomes in every aspect of life, but the data shows that students suffering from COVID-19's negative mental effects tend to have higher grades. Extending to broader areas, since every person's mind is limited to some degree, the best starting point for analyzing or learning something is to discard pre-assumptions and study the facts such as data. Though due to many reasons,  facts are not guaranteed to be fully trustable, they do offer people a chance to rethink and embrace a more diverse mindset."
   })
 }
->>>>>>> adb723a65ef2d184bbe22d9a35e46b2e0dffa1e2
