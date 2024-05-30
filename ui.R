@@ -175,15 +175,15 @@ ui <- navbarPage(
       div(class = "page-header",
           h1("Key Takeaways", class = "main-title text-center mt-4")),
       tags$div(class = "subtitle", 
-               "Takeaway 1"
+               "1. Mental health among college students can be due to different factors"
       ),
-#      fluidRow(
-#        column(6, 
-#               textOutput("takeaway1")
-#        ),
-#        column(6, 
-#               plotOutput("chart1"))
-#      ),
+      fluidRow(
+        column(12, 
+               textOutput("takeaway1")
+       ),
+        column(12, 
+               plotOutput("chart1"))
+      ),
       tags$div(class = "subtitle", 
                "2. Stress is closely linked to students' majors"
       ),
