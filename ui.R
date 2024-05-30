@@ -136,11 +136,11 @@ ui <- navbarPage(
         tags$link(rel = "stylesheet", type = "text/css", href = "styles.css")
       ),
       h1("Interactive Page 2", class = "main-title text-center mt-4"),
-      p(""),
       div(class = "visualization",
           h4("Visualization", class = "visualization-title"),
           p("Select a stress source from the dropdown menu to see how different stressors during the pandemic have affected students' academic performance, represented through changes in their CGPA.", class = "control-description"),
           selectInput("department_select", "Select Department", choices = NULL),
+          p("The question for this chart is, does the department that student's are in affect their stress levels? This highlights the differences of reasoning for stress depending on your major, or the department you are in. CSE is by far the most popular department, and reported the most stress during exams. IT and BioTech also report high stress during exams. Additionally, the second most reported stress area is money. Both areas of stress are not surprising, given university is expensive in the United States, and there are many exams throughout the school year that are highly impact your grade."),
           plotOutput("plot_2")
        )
      )
