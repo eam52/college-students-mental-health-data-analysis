@@ -96,6 +96,6 @@ server <- function(input, output, session) {
   })
   
   output$insights <- renderText({
-    "Contents for insights."
+    "In conclusion, the most important insight is that we should not think about mental health issues based on common prejudices and stereotypes. Many individuals always unintentionally hold a prejudice that students' mental health conditions are mainly related to academic performances since their lives are centered on learning, but it turns out that factors that we tend to ignore, such as diet and screen time, also influence students' mental health. Similarly, a common stereotype is that negative mental impacts definitely lead to some worse outcomes in every aspect of life, but the data shows that students suffering from COVID-19's negative mental effects tend to have higher grades. Extending to broader areas, since every person's mind is limited to some degree, the best starting point for analyzing or learning something is to discard pre-assumptions and study the facts such as data. Though due to many reasons,  facts are not guaranteed to be fully trustable, they do offer people a chance to rethink and embrace a more diverse mindset."
   })
 }
