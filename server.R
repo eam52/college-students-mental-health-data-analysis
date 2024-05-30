@@ -71,8 +71,8 @@ server <- function(input, output, session) {
       scale_fill_brewer(palette = "Set1")
   })
   
-  output$chart1 <- renderTable({
-      source("tables.R")$value
+  output$tables <- renderTable({
+      source("tables.R") 
     })
   
   output$takeaway1 <- renderText({
