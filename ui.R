@@ -47,7 +47,7 @@ ui <- navbarPage(
           )
       )
     )
-  ),
+  ), )
   tabPanel(
     title = "Interactive Page 1",
     fluidPage(
@@ -59,17 +59,36 @@ ui <- navbarPage(
       p("We understand that diet can affect our daily routines, whether we eat too little or too much, both of which can be caused by stress. Students respond to stress differently, and understanding that, we wanted to research the relationship between dietary habits, performance, and mental health among college students.", class = "section-content")
 
     )
-  ),
+  )
+  
   tabPanel(
-    title = "Interactive Page 2",
+    title = "Where Students are receiving stress in the 10 Most Common Departments",
     fluidPage(
       tags$head(
         tags$link(rel = "stylesheet", type = "text/css", href = "styles.css")
       ),
       h1("Interactive Page 2", class = "main-title text-center mt-4"),
-      p("")
-    )
-  ),
+      sidebarLayout(
+        sidebarPanel(
+          checkboxInput("Stress", "Select which reason for stress to display:",
+                        choices = colnames(Department), selected = "CSE"
+          ),
+        )
+      ),
+      p("The question for this chart is, does the department that student's are in affect their stress levels? 
+        This highlights the differences of reasoning for stress depending on your major, or the department you are in. 
+        CSE is by far the most popular department, and reported the most stress during exams.
+        IT and BioTech also report high stress during exams. Additionally, the second most reported stress area is money. 
+        Both areas of stress are not surprising, given university is expensive in the United States, and there are many 
+        exams throughout the school year that are highly impact your grade."), 
+      ))
+      
+    mainPanel(outputId = "plot_2"
+      )
+   
+  
+  
+  
   tabPanel(
     title = "Interactive Page 3",
     fluidPage(
