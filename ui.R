@@ -48,7 +48,7 @@ ui <- navbarPage(
           )
       )
     )
-  ), )
+  ),
   tabPanel(
     title = "Negative Factors",
     fluidPage(
@@ -110,9 +110,9 @@ ui <- navbarPage(
                      h3("Key Insights and findings", class = "section-title"),
                      p("From the chart below, we learn the main cause of stress among college students:", class = "section-content"),
                      tags$ul(
-                     tags$li("Majority of student stress from exams"),
-                     tags$li("The next group is stress about money"),
-                     tags$li("followed by, not getting enought sleep"),
+                       tags$li("Majority of student stress from exams"),
+                       tags$li("The next group is stress about money"),
+                       tags$li("followed by, not getting enought sleep"),
                      ),
                      h3("Resources", class="section-title"),
                      p("Read more about effects of stress and how to cope with stress", class ="section-content"),
@@ -128,36 +128,23 @@ ui <- navbarPage(
         )
       )
     )
-  )
-  
+  ),
   tabPanel(
-    title = "Where Students are receiving stress in the 10 Most Common Departments",
+    title = "Stress and Major",
     fluidPage(
       tags$head(
         tags$link(rel = "stylesheet", type = "text/css", href = "styles.css")
       ),
       h1("Interactive Page 2", class = "main-title text-center mt-4"),
-      sidebarLayout(
-        sidebarPanel(
-          checkboxInput("Stress", "Select which reason for stress to display:",
-                        choices = colnames(Department), selected = "CSE"
-          ),
-        )
-      ),
-      p("The question for this chart is, does the department that student's are in affect their stress levels? 
-        This highlights the differences of reasoning for stress depending on your major, or the department you are in. 
-        CSE is by far the most popular department, and reported the most stress during exams.
-        IT and BioTech also report high stress during exams. Additionally, the second most reported stress area is money. 
-        Both areas of stress are not surprising, given university is expensive in the United States, and there are many 
-        exams throughout the school year that are highly impact your grade."), 
-      ))
-      
-    mainPanel(outputId = "plot_2"
-      )
-   
-  
-  
-  
+      p(""),
+      div(class = "visualization",
+          h4("Visualization", class = "visualization-title"),
+          p("Select a stress source from the dropdown menu to see how different stressors during the pandemic have affected students' academic performance, represented through changes in their CGPA.", class = "control-description"),
+          selectInput("department_select", "Select Department", choices = NULL),
+          plotOutput("plot_2")
+       )
+     )
+   ),
   tabPanel(
     title = "COVID-19 Impact",
     fluidPage(
@@ -199,7 +186,7 @@ ui <- navbarPage(
       fluidRow(
         column(12, 
                textOutput("takeaway1")
-       ),
+        ),
         column(12, 
                tableOutput("tables"))
       ),
@@ -224,14 +211,14 @@ ui <- navbarPage(
                DTOutput("summary_table"))
       ),
       tags$div(class = "subtitle", 
-         "The most important insight and broader implications"
+               "The most important insight and broader implications"
       ),
       fluidRow(
-      column(12, 
-             textOutput("insights")
-      ),
-      
-     )
+        column(12, 
+               textOutput("insights")
+        ),
+        
+      )
     )
   )
 )
