@@ -78,10 +78,6 @@ body {
 li {
   color: #fff;
 }
-<<<<<<< HEAD
-.firstpage-background{
-  background: url("picture2.jpeg");
-=======
 
 .subtitle {
   font-size: 22px;
@@ -89,5 +85,4 @@ li {
   margin-bottom: 20px;
   text-align: center;
   color: #030303;
->>>>>>> 3928f03dd176e886b7d52316dea79c2fbdfce6e2
 }
